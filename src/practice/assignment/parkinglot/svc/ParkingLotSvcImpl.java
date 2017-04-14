@@ -6,7 +6,10 @@ import practice.assignment.parkinglot.constants.MessageConstants;
 import practice.assignment.parkinglot.domain.ParkTicket;
 import practice.assignment.parkinglot.domain.ParkingLot;
 import practice.assignment.parkinglot.domain.Vehicle;
-
+/**
+ * 
+ *
+ */
 public class ParkingLotSvcImpl implements ParkingLotSvc {
 
 	private ParkingLot parkingLot;
@@ -34,10 +37,21 @@ public class ParkingLotSvcImpl implements ParkingLotSvc {
 
 		return parkingLot.getLotIdsByColor(color);
 	}
-	
-	public int findSlotNoforRegistration(String registrationNo){
+
+	@Override
+	public int findSlotNoforRegistration(String registrationNo) {
 		Assert.assertNotNull(MessageConstants.LOT_UNINITIALIZED, parkingLot);
 		return parkingLot.getVehicleSlot(registrationNo);
+	}
+
+	@Override
+	public ParkTicket leaveSlot(int lotId) {
+		return parkingLot.leaveSlot(lotId);
+	}
+
+	@Override
+	public ParkTicket unparkVehicle(Vehicle vehicle) {
+		return parkingLot.unparkVehicle(vehicle);
 	}
 
 }

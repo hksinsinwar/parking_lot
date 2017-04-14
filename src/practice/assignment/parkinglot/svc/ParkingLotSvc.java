@@ -12,4 +12,10 @@ public interface ParkingLotSvc {
 
 	int[] getParkedLotIdsByColor(String color);
 
+	int findSlotNoforRegistration(String registrationNo);
+
+	ParkTicket leaveSlot(int lotId);
+
+	ParkTicket unparkVehicle(Vehicle vehicle);
+
 }

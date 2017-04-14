@@ -83,20 +83,34 @@ public class ParkingLot {
 
 	public ParkTicket unparkVehicle(Vehicle vehicle) {
 		// check whether the vehicle is in parking lot ?
-		ParkTicket parkTicket = new ParkTicket();
 		SLot slot = lotMap.get(vehicle.getVehicleNo());
+		String vehicleNo = vehicle.getVehicleNo();
+		return deAllocateParkingSlot(slot, vehicleNo);
+	}
+	
+	public ParkTicket leaveSlot(int slotId) {
+		// check whether the vehicle is in parking lot ?
+		SLot slot = lot[slotId];
+		String vehicleNo = slot.getVehicle().getVehicleNo();
+		
+		return deAllocateParkingSlot(slot, vehicleNo);
+	}
 
+	private ParkTicket deAllocateParkingSlot(SLot slot, String vehicleNo) {
+		ParkTicket parkTicket = new ParkTicket();
+			
 		// Later it will have the cone of slot
 		parkTicket.setTicketStatus(TicketStatus.UNPARKED);
 		parkTicket.setEnd(new Date());
 		parkTicket.setStart(slot.getStart());
 		parkTicket.setLot(slot);
+		parkTicket.setMessage(MessageFormat.format(MessageConstants.LOT_DEALLOCATION, slot.getLotId()));
+		
 
 		// reset the slot
 		slot.reset();
-		parkTicket.setMessage(MessageFormat.format(MessageConstants.LOT_DEALLOCATION, slot.getLotId()));
 
-		lotMap.remove(vehicle.getVehicleNo());
+		lotMap.remove(vehicleNo);
 		totalFilled--;
 
 		return parkTicket;
