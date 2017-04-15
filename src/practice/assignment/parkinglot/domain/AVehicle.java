@@ -1,17 +1,14 @@
 package practice.assignment.parkinglot.domain;
 
-public abstract class Vehicle {
+public abstract class AVehicle {
 	
 	private String color;
 	private String vehicleNo;
 	private String owner;
 	
 	private String type;
-	public String getType() {
-		return this.type;
-	}
 
-	public Vehicle(String color,String vehicleNo,String owner,String type){
+	public AVehicle(String color,String vehicleNo,String owner,String type){
 		this.color =color;
 		this.owner = owner;
 		this.type = type;
@@ -19,6 +16,10 @@ public abstract class Vehicle {
 	}
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public String getType() {
+		return this.type;
 	}
 	
 	public String getColor() {

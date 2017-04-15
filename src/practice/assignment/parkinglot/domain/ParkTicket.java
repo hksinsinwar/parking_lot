@@ -6,7 +6,7 @@ public class ParkTicket {
 	public enum TicketStatus{
 		SUCCESS, FAILURE,UNPARKED
 	}
-	private SLot lot;
+	private Slot lot;
 	
 	private TicketStatus ticketStatus = TicketStatus.FAILURE;
 	
@@ -31,11 +31,11 @@ public class ParkTicket {
 		this.end = end;
 	}
 
-	public SLot getLot() {
+	public Slot getLot() {
 		return lot;
 	}
 
-	public void setLot(SLot lot) {
+	public void setLot(Slot lot) {
 		this.lot = lot;
 	}
 

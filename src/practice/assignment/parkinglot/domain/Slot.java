@@ -2,12 +2,12 @@ package practice.assignment.parkinglot.domain;
 
 import java.util.Date;
 
-public class SLot {
+public class Slot {
 	public enum LotStatus {
 		Filled, Vacant
 	}
 
-	private Vehicle vehicle;
+	private AVehicle vehicle;
 	private int lotId;
 	private Date start;
 	private Date end;
@@ -34,11 +34,11 @@ public class SLot {
 		this.lotStatus = lotStatus;
 	}
 
-	public Vehicle getVehicle() {
+	public AVehicle getVehicle() {
 		return vehicle;
 	}
 
-	public void setVehicle(Vehicle vehicle) {
+	public void setVehicle(AVehicle vehicle) {
 		this.vehicle = vehicle;
 	}
 

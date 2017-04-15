@@ -3,16 +3,17 @@ package practice.assignment.parkinglot.svc;
 import org.junit.Assert;
 
 import practice.assignment.parkinglot.constants.MessageConstants;
+import practice.assignment.parkinglot.domain.IParkingLot;
 import practice.assignment.parkinglot.domain.ParkTicket;
 import practice.assignment.parkinglot.domain.ParkingLot;
-import practice.assignment.parkinglot.domain.Vehicle;
+import practice.assignment.parkinglot.domain.AVehicle;
 /**
  * 
  *
  */
 public class ParkingLotSvcImpl implements ParkingLotSvc {
 
-	private ParkingLot parkingLot;
+	private IParkingLot parkingLot;
 
 	@Override
 	public void initParkingLot(int capcity) {
@@ -20,7 +21,7 @@ public class ParkingLotSvcImpl implements ParkingLotSvc {
 	}
 
 	@Override
-	public ParkTicket parkVehicle(Vehicle vehicle) {
+	public ParkTicket parkVehicle(AVehicle vehicle) {
 		Assert.assertNotNull(MessageConstants.LOT_UNINITIALIZED, parkingLot);
 		return parkingLot.parkVehicle(vehicle);
 	}
@@ -50,7 +51,7 @@ public class ParkingLotSvcImpl implements ParkingLotSvc {
 	}
 
 	@Override
-	public ParkTicket unparkVehicle(Vehicle vehicle) {
+	public ParkTicket unparkVehicle(AVehicle vehicle) {
 		return parkingLot.unparkVehicle(vehicle);
 	}
 

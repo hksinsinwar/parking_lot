@@ -1,12 +1,12 @@
 package practice.assignment.parkinglot.svc;
 
 import practice.assignment.parkinglot.domain.ParkTicket;
-import practice.assignment.parkinglot.domain.Vehicle;
+import practice.assignment.parkinglot.domain.AVehicle;
 
 public interface ParkingLotSvc {
 	void initParkingLot(int capcity);
 
-	ParkTicket parkVehicle(Vehicle vehicle);
+	ParkTicket parkVehicle(AVehicle vehicle);
 
 	String[] getParkedVehicleNosByColor(String color);
 
@@ -16,6 +16,6 @@ public interface ParkingLotSvc {
 
 	ParkTicket leaveSlot(int lotId);
 
-	ParkTicket unparkVehicle(Vehicle vehicle);
+	ParkTicket unparkVehicle(AVehicle vehicle);
 
 }
